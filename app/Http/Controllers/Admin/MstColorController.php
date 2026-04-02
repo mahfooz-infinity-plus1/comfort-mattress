@@ -1,0 +1,193 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Model\MstColor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+
+class MstColorController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $colors = MstColor::paginate(50);
+        return view('backend.admin.colors.index', compact('colors'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:50|unique:mst_colors,title',
+            // 'color_code' => 'required|string|unique:mst_colors,color_code',
+        ],
+            [
+                'title.required' => 'Please Enter Thickness',
+                'title.max' => 'Please Enter Thickness in Maximum 50 Character',
+                'title.unique' => $request->title . ' Color Already Available',
+                // 'color_code.required' => 'Please Select Color',
+                // 'color_code.unique' => $request->color_code . ' Color Already Available',
+            ]);
+
+        if ($validator->fails()) {
+            connectify('error', 'Add Color', $validator->errors()->first());
+            return redirect(route('admin.colors.all'))->withInput();
+        }
+
+        MstColor::create([
+            'title' => $request->title,
+            // 'color_code' => $request->color_code,
+            'status' => true,
+        ]);
+
+        connectify('success', 'Thickness Added', 'Thickness has been added successfully !');
+
+        return redirect(route('admin.colors.all'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        try {
+
+            $color = MstColor::where('id', $id)->firstOrFail();
+            return view('backend.admin.colors.edit', compact('color'));
+
+        } catch (\Exception $ex) {
+
+            if ($ex instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+
+                connectify('error', 'Color Updated', 'Whoops, Color Not Found !');
+
+                return redirect(route('admin.colors.all'));
+            }
+
+            Log::error(['Edit Color' => $ex->getMessage()]);
+
+            connectify('error', 'Color Update', 'Whoops, Something Went Wrong from our end !');
+
+            return redirect(route('admin.colors.all'));
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:50',
+            // 'color_code' => 'required|string',
+            'status' => 'required|integer|max:1',
+        ],
+            [
+                'title.required' => 'Please Enter Color Title',
+                // 'color_code.required' => 'Please Select Color',
+                'title.max' => 'Please Enter Color in Maximum 50 Character',
+                'status.required' => 'Please Enter Color Status',
+                'status.max' => 'Invalid Data Provided',
+            ]);
+
+        if ($validator->fails()) {
+            connectify('error', 'Color Update', $validator->errors()->first());
+            return redirect(route('admin.colors.edit', $id))->withInput();
+        }
+
+        try {
+
+            $color = MstColor::where('id', $id)->firstOrFail();
+
+            $color->update([
+                'title' => $request->title,
+                // 'color_code' => $request->color_code,
+                'status' => $request->status,
+            ]);
+
+            connectify('success', 'Color Updated', 'Color has been Updated successfully');
+
+            return redirect(route('admin.colors.all'));
+
+        } catch (\Exception $ex) {
+
+            if ($ex instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+
+                connectify('error', 'Color Updated', 'Whoops, Color Not Found !');
+
+                return redirect(route('admin.colors.all'));
+            }
+
+            Log::error(['Edit Color' => $ex->getMessage()]);
+
+            connectify('error', 'Color Update', 'Whoops, Something Went Wrong from our end !');
+
+            return redirect(route('admin.colors.all'));
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        try {
+
+            $color = MstColor::where('id', $id)->firstOrFail();
+            $color->delete();
+            return redirect(route('admin.colors.all'))->with('messageSuccess', 'Color has been deleted successfully !');
+
+        } catch (\Exception $ex) {
+
+            if ($ex instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+                return redirect(route('admin.colors.all'))->with('messageDanger', 'Whoops, Color Not Found with id : ' . $id);
+            }
+            return redirect(route('admin.colors.all'))->with('messageDanger', 'Error, ' . $ex->getMessage());
+        }
+    }
+}
