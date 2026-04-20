@@ -46,7 +46,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-6 col-xl-6 col-md-6 col-12 col-xs-12 pro-info">
-                            <h4>{{ $product->title }}</h4>
+                            <h1>{{ $product->title }}</h1>
                             @if ($product->categories->count() > 0)
                                 <span class="pro-details">
                                     @foreach ($product->categories as $index => $cat)
