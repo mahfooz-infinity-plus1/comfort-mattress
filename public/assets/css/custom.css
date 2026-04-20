@@ -1090,6 +1090,12 @@
     color: #FF3F26;
 }
 
+.pro-page .pro-image .pro-info h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #FF3F26;
+}
+
 .pro-page .pro-image .pro-info .rating {
     border-top: 1px solid #ededed;
     margin-top: 15px;
