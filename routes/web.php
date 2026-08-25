@@ -100,7 +100,12 @@ Route::middleware(['AuthUser'])->group(function () {
     Route::POST('/cart/update', 'CartController@update')->name('cart.update');
     Route::get('/checkout', 'OrderController@index')->name('checkout');
     Route::POST('/checkout', 'OrderController@checkout')->name('order.checkout');
-    Route::POST('/transaction-callback', 'OrderController@handleCallbackFromPaytm')->name('paytm.callback');
+    // OLD PAYMENT GATEWAY (PHONEPE / PAYTM) ROUTE
+    // Route::POST('/transaction-callback', 'OrderController@handleCallbackFromPaytm')->name('paytm.callback');
+    
+    // NEW PAYMENT GATEWAY (CCAVENUE) ROUTES
+    Route::POST('/ccavenue-callback', 'OrderController@ccavenueCallback')->name('ccavenue.callback');
+    Route::POST('/ccavenue-cancel', 'OrderController@ccavenueCancel')->name('ccavenue.cancel');
     Route::POST('/pincode', 'MainController@verifyPincode')->name('verify.pincode');
     Route::get('/order/success/{order}', 'OrderController@handleCallbackofCOD')->name('order.success');
 // Wishlist

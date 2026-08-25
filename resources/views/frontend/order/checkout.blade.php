@@ -269,11 +269,25 @@
                                                 </div>
                                             </div>
 
+                                            <!-- OLD PAYMENT GATEWAY (PHONEPE / PAYTM)
                                             <div class="payment-group pymt-btn mb--10">
                                                 <div class="payment-radio">
                                                     <label for="paytm" class="cb-container">
                                                         DEBIT/CREDIT/NETBANKING/PAYTM
                                                         <input type="radio" value="paytm" name="payment_mode" id="paytm"
+                                                            checked="">
+                                                        <span class="rb-checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            -->
+
+                                            <!-- NEW PAYMENT GATEWAY (CCAVENUE) -->
+                                            <div class="payment-group pymt-btn mb--10">
+                                                <div class="payment-radio">
+                                                    <label for="ccavenue" class="cb-container">
+                                                        ONLINE PAYMENT (Debit/Credit/Netbanking/UPI)
+                                                        <input type="radio" value="ccavenue" name="payment_mode" id="ccavenue"
                                                             checked="">
                                                         <span class="rb-checkmark"></span>
                                                     </label>

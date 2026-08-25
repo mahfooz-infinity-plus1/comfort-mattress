@@ -211,7 +211,7 @@ class OrderController extends Controller
         connectify('success', 'Order Placed', 'Your Order has been placed Successfully !');
         return redirect()->route('order.success', encrypt($order->id));
     } else {
-        // PHONEPE Logic
+        /* OLD PAYMENT GATEWAY (PHONEPE) CODE
         $transaction_data = [
             'merchantId' => env('PHONEPE_MERCHANT_ID'),
             'merchantTransactionId' => $order->id,
@@ -259,6 +259,38 @@ class OrderController extends Controller
         } else {
             dd('Payment Error: ' . json_encode($res));
         }
+        */
+
+        // NEW PAYMENT GATEWAY (CCAVENUE) CODE
+        $merchant_data = '';
+        $working_key = env('CCAVENUE_WORKING_KEY');
+        $access_code = env('CCAVENUE_ACCESS_CODE');
+        
+        $postData = [
+            'merchant_id' => env('CCAVENUE_MERCHANT_ID'),
+            'order_id' => $order->id,
+            'amount' => $balance,
+            'currency' => 'INR',
+            'redirect_url' => route('ccavenue.callback'),
+            'cancel_url' => route('ccavenue.cancel'),
+            'language' => 'EN',
+            'billing_name' => $user->name,
+            'billing_address' => $add->address,
+            'billing_city' => $add->city,
+            'billing_state' => $add->territory,
+            'billing_zip' => $add->pincode,
+            'billing_country' => $add->country,
+            'billing_tel' => $add->mobile,
+            'billing_email' => $user->email,
+        ];
+        
+        foreach ($postData as $key => $value){
+            $merchant_data .= $key.'='.$value.'&';
+        }
+        
+        $encrypted_data = \App\Services\CCAvenueService::encrypt($merchant_data, $working_key);
+        
+        return view('frontend.order.ccavenue-redirect', compact('encrypted_data', 'access_code'));
     }
 }
 
@@ -269,7 +301,8 @@ class OrderController extends Controller
         return view('frontend.order.transaction-success', compact('order'));
     }
 
-   public function handleCallbackFromPaytm(Request $request, LogisticService $logistic)
+    /* OLD PAYMENT GATEWAY (PHONEPE / PAYTM) CALLBACK
+    public function handleCallbackFromPaytm(Request $request, LogisticService $logistic)
     {
         // dd($request->all());
         $paramList = $request->all();
@@ -277,10 +310,7 @@ class OrderController extends Controller
         if ($request->code == 'PAYMENT_SUCCESS') {
             $txnres = $request->all();
             Log::info(['Payment Success' => $txnres]);
-            // unset($txnres['MID']);
-            // unset($txnres['ORDERID']);
-            // unset($txnres['CURRENCY']);
-            // unset($txnres['CHECKSUMHASH']);
+            
 
             $order = TxnOrder::where('id', $request->transactionId)->with('details', 'user', 'transaction')->firstOrFail();
 
@@ -296,34 +326,6 @@ class OrderController extends Controller
                     // 'shipment_id' => $order->payment_mode == 'paytm' ? $OrderCreation['shipment_id'] : null,
                     // 'shipment_order_id' => $order->payment_mode == 'paytm' ? $OrderCreation['order_id'] : null,
                 ]);
-
-                // $transaction = Transaction::create([
-                //     'order_id' => $request->transactionId,
-                //     'MID' => $request->providerReferenceId,
-                //     'TXNID' => $request->transactionId,
-                //     'TXNAMOUNT' => $request->amount,
-                //     'PAYMENTMODE' => 'Online',
-                //     'CURRENCY' => 'INR',
-                //     'TXNDATE' => '',
-                //     'STATUS' => 'Payment Success',
-                //     'RESPCODE' => 'Payment Success',
-                //     'RESPMSG' => 'Payment Success',
-                //     'GATEWAYNAME' => 'Online',
-                //     'BANKTXNID' => '',
-                //     'CHECKSUMHASH' => $request->checksum,
-                // ]);
-
-                // if (array_key_exists('BANKNAME', $paramList)) {
-                //     $transaction->update([
-                //         'BANKNAME' => $paramList['BANKNAME'],
-                //     ]);
-                // }
-
-                // Delivery::orderCreation($order, $order->user);
-
-                // SMS::send($order->user->mobile, 'Aura Hearing Care - Your Order has been placed successfully, Your Order No : ' . $order->id . ' Login for more detail on ' . url('/'));
-
-                // SMS::send('9223324655', 'Aura Hearing Care - New Order Placed with Order No : ' . $order->id);
 
                 Mail::send(['html' => 'backend.mails.received'], ['order' => $order], function ($message) use ($order) {
                     $message->to($order->user->email)->subject('Your order has been placed successfully ! [order no : ' . $order->id . ']');
@@ -344,81 +346,65 @@ class OrderController extends Controller
 
         }
 
-        // $paramList = $request->all();
-        // $isValidChecksum = "FALSE";
-        // $paytmChecksum = $request->checksum;
-        // $paytm = new Paytm();
-        // $isValidChecksum = $paytm->verifychecksum_e($paramList, env('PAYTM_MERCHANT_KEY'), $paytmChecksum);
-        // if ($isValidChecksum == "TRUE") {
-        //     if ($paramList["STATUS"] == "TXN_SUCCESS") {
-        //         $txnres = $request->all();
-        //         Log::info(['Payment Success' => $txnres]);
-        //         unset($txnres['MID']);
-        //         unset($txnres['ORDERID']);
-        //         unset($txnres['CURRENCY']);
-        //         unset($txnres['CHECKSUMHASH']);
-
-        //         $order = TxnOrder::where('id', $request->ORDERID)->with('details', 'user', 'transaction')->firstOrFail();
-
-        //         if ($order->status == 'nc') {
-
-        //             if ($order->payment_mode == 'paytm') {
-        //                 $OrderCreation = $logistic->OrderCreation($order, $order->user, "Prepaid");
-        //             }
-
-        //             $order->update([
-        //                 'status' => 'Booked',
-        //                 'payment_status' => 'Paid',
-        //                 'shipment_id' => $order->payment_mode == 'paytm' ? $OrderCreation['shipment_id'] : null,
-        //                 'shipment_order_id' => $order->payment_mode == 'paytm' ? $OrderCreation['order_id'] : null,
-        //             ]);
-
-        //             $transaction = Transaction::create([
-        //                 'order_id' => $paramList['ORDERID'],
-        //                 'MID' => $paramList['MID'],
-        //                 'TXNID' => $paramList['TXNID'],
-        //                 'TXNAMOUNT' => $paramList['TXNAMOUNT'],
-        //                 'PAYMENTMODE' => $paramList['PAYMENTMODE'],
-        //                 'CURRENCY' => $paramList['CURRENCY'],
-        //                 'TXNDATE' => $paramList['TXNDATE'],
-        //                 'STATUS' => $paramList['STATUS'],
-        //                 'RESPCODE' => $paramList['RESPCODE'],
-        //                 'RESPMSG' => $paramList['RESPMSG'],
-        //                 'GATEWAYNAME' => $paramList['GATEWAYNAME'],
-        //                 'BANKTXNID' => $paramList['BANKTXNID'],
-        //                 'CHECKSUMHASH' => $paramList['CHECKSUMHASH'],
-        //             ]);
-
-        //             if (array_key_exists('BANKNAME', $paramList)) {
-        //                 $transaction->update([
-        //                     'BANKNAME' => $paramList['BANKNAME'],
-        //                 ]);
-        //             }
-
-        //             Delivery::orderCreation($order, $order->user);
-
-        //             // SMS::send($order->user->mobile, 'Aura Hearing Care - Your Order has been placed successfully, Your Order No : ' . $order->id . ' Login for more detail on ' . url('/'));
-
-        //             // SMS::send('9223324655', 'Aura Hearing Care - New Order Placed with Order No : ' . $order->id);
-
-        //             Mail::send(['html' => 'backend.mails.received'], ['order' => $order], function ($message) use ($order) {
-        //                 $message->to($order->user->email)->subject('Your order has been placed successfully ! [order no : ' . $order->id . ']');
-        //                 $message->from('order-confirmation@easyfithearing.com', 'Aura Hearing Care');
-        //             });
-
-        //             Mail::send(['html' => 'backend.mails.admin'], ['order' => $order], function ($message) use ($order) {
-        //                 $message->to('order-confirmation@easyfithearing.com')->subject('You have a new order ! [order id : ' . $order->id . ']');
-        //                 $message->from('order-confirmation@easyfithearing.com', 'Aura Hearing Care');
-        //             });
-
-        //             Cart::clear();
-        //         }
-        //         return view('frontend.order.transaction-success')->with('order', $order)->with('TXNID', $txnres['TXNID']);
-        //     } else {
-        //         return view('frontend.order.transaction-failed')->with('data', $request->except(['MID', 'CHECKSUMHASH']));
-        //     }
-        // } else {
-        //     return view('frontend.order.transaction-failed')->with('data', $request->except(['MID', 'CHECKSUMHASH']));
         // }
+    }
+    */
+    
+    // NEW PAYMENT GATEWAY (CCAVENUE) CALLBACKS
+    public function ccavenueCallback(Request $request, LogisticService $logistic)
+    {
+        $workingKey = env('CCAVENUE_WORKING_KEY');
+        $encResponse = $request->encResp;
+        $rcvdString = \App\Services\CCAvenueService::decrypt($encResponse, $workingKey);
+        
+        $decryptValues = explode('&', $rcvdString);
+        $dataSize = sizeof($decryptValues);
+        
+        $responseMap = [];
+        for ($i = 0; $i < $dataSize; $i++) {
+            $information = explode('=', $decryptValues[$i]);
+            if (count($information) == 2) {
+                $responseMap[$information[0]] = urldecode($information[1]);
+            }
+        }
+        
+        $orderStatus = $responseMap['order_status'] ?? 'Failure';
+        $orderId = $responseMap['order_id'] ?? null;
+        
+        if ($orderStatus === 'Success') {
+            Log::info(['CCAvenue Payment Success' => $responseMap]);
+            $order = TxnOrder::where('id', $orderId)->with('details', 'user', 'transaction')->firstOrFail();
+            
+            if ($order->status == 'nc') {
+                if ($order->payment_mode == 'paytm' || $order->payment_mode == 'ccavenue') {
+                    $OrderCreation = $logistic->OrderCreation($order, $order->user, "Prepaid");
+                }
+                
+                $order->update([
+                    'status' => 'Booked',
+                    'payment_status' => 'Paid',
+                ]);
+                
+                Mail::send(['html' => 'backend.mails.received'], ['order' => $order], function ($message) use ($order) {
+                    $message->to($order->user->email)->subject('Your order has been placed successfully ! [order no : ' . $order->id . ']');
+                    $message->from('comfortmattresses50@gmail.com', 'Comfort Mattress');
+                });
+
+                Mail::send(['html' => 'backend.mails.admin'], ['order' => $order], function ($message) use ($order) {
+                    $message->to('comfortlatexmattresses1959@gmail.com')->subject('You have a new order ! [order id : ' . $order->id . ']');
+                    $message->from('comfortmattresses50@gmail.com', 'Comfort Mattress');
+                });
+                
+                Cart::clear();
+            }
+            return view('frontend.order.transaction-success')->with('order', $order)->with('TXNID', $responseMap['tracking_id'] ?? '');
+        } else {
+            return view('frontend.order.transaction-failed')->with('data', $responseMap);
+        }
+    }
+
+    public function ccavenueCancel(Request $request)
+    {
+        return view('frontend.order.transaction-failed')->with('data', ['message' => 'Transaction cancelled by user.']);
     }
 }
