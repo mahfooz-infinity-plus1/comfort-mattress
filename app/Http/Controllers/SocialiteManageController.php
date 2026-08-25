@@ -39,6 +39,13 @@ class SocialiteManageController extends Controller
         }
 
     }
+    
+// public function handleProviderCallback($provider)
+// {
+//     \Log::info('GOOGLE CALLBACK REACHED');
+
+//     dd('callback reached');
+// }
 
     public function findOrCreateUser($user, $provider)
     {

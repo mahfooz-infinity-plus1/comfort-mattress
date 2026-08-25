@@ -101,11 +101,78 @@
                                     </div>
                                 </div>
                             @endif
-                            @if ($product->description)
+                            <!--@if ($product->description)-->
+                            <!--    <div class="product-description">-->
+                            <!--        {!! $product->description !!}-->
+                            <!--    </div>-->
+                            <!--@endif-->
+                            
+                            <!-- =============== read more read less btn here ============ -->
+                                                        @if ($product->description)
+                                <style>
+                                    .desc-content-{{ $product->id }} {
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 5;
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                    }
+                                    .desc-content-{{ $product->id }}.expanded {
+                                        display: block;
+                                        -webkit-line-clamp: unset;
+                                    }
+                                    .read-more-btn-{{ $product->id }} {
+                                        color: #07498c; /* Matches your theme color */
+                                        cursor: pointer;
+                                        font-weight: 600;
+                                        display: none;
+                                        margin-top: 8px;
+                                        text-decoration: underline;
+                                        border: none;
+                                        background: transparent;
+                                        padding: 0;
+                                    }
+                                </style>
                                 <div class="product-description">
-                                    {!! $product->description !!}
+                                    <div class="desc-content-{{ $product->id }}" id="descContent-{{ $product->id }}">
+                                        {!! $product->description !!}
+                                    </div>
+                                    <button type="button" class="read-more-btn-{{ $product->id }}" id="readMoreBtn-{{ $product->id }}">Read more</button>
                                 </div>
+                                <script>
+                                    (function() {
+                                        function initReadMore() {
+                                            var content = document.getElementById("descContent-{{ $product->id }}");
+                                            var btn = document.getElementById("readMoreBtn-{{ $product->id }}");
+                                            
+                                            if (content && btn) {
+                                                // Slight delay to ensure content is fully rendered before calculating height
+                                                setTimeout(function() {
+                                                    if (content.scrollHeight > content.clientHeight) {
+                                                        btn.style.display = "inline-block";
+                                                    }
+                                                }, 100);
+                                                
+                                                btn.addEventListener("click", function() {
+                                                    content.classList.toggle("expanded");
+                                                    if (content.classList.contains("expanded")) {
+                                                        btn.innerText = "Read less";
+                                                    } else {
+                                                        btn.innerText = "Read more";
+                                                    }
+                                                });
+                                            }
+                                        }
+                                        
+                                        if (document.readyState === "loading") {
+                                            document.addEventListener("DOMContentLoaded", initReadMore);
+                                        } else {
+                                            initReadMore();
+                                        }
+                                    })();
+                                </script>
                             @endif
+
+                            
                             @if (!in_array($product->id, [25]))
                                 <div class="pro-availabale">
                                     @if ($product->colors[0]->stock <= 0)

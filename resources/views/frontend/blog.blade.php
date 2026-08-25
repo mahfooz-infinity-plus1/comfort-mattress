@@ -6,6 +6,106 @@
       <div class="row">
         <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
           <div class="home-blog-card-img-container">
+            <a href="{{route('blogs15')}}">
+            <img src="{{asset('assets/image/blog-image/comfort-blog-15.jpeg')}}" alt="">
+            </a>
+          </div>
+          <div class="home-blog-card-content p-20">
+            <a href="{{route('blogs15')}}">
+            <h2 class="home-blog-card-heading">
+               How to Find the Best Mattress Manufacturer in Mumbai
+            </h2>
+            </a>
+            <p class="home-blog-card-info">
+                Choosing the right mattress is an important decision because a mattress affects more than just
+            </p>
+            <div class="home-blog-card-btn">
+              <a href="{{route('blogs15')}}" class="home-blog-card-read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
+          <div class="home-blog-card-img-container">
+            <a href="{{route('blogs14')}}">
+            <img src="{{asset('assets/image/blog-image/comfort-blog-14.jpeg')}}" alt="">
+            </a>
+          </div>
+          <div class="home-blog-card-content p-20">
+            <a href="{{route('blogs14')}}">
+            <h2 class="home-blog-card-heading">
+               How Does a Latex Mattress Help Improve Sleep Quality?
+            </h2>
+            </a>
+            <p class="home-blog-card-info">
+                A comfortable mattress can make a significant difference to your sleep quality. While many people focus on 
+            </p>
+            <div class="home-blog-card-btn">
+              <a href="{{route('blogs14')}}" class="home-blog-card-read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
+          <div class="home-blog-card-img-container">
+            <a href="{{route('blogs13')}}">
+            <img src="{{asset('assets/image/blog-image/comfort-blog-13.jpeg')}}" alt="">
+            </a>
+          </div>
+          <div class="home-blog-card-content p-20">
+            <a href="{{route('blogs13')}}">
+            <h2 class="home-blog-card-heading">
+               Doctor Ortho Mattress vs Regular Mattress: Which Is Better for Back Pain?
+            </h2>
+            </a>
+            <p class="home-blog-card-info">
+                Back pain has become one of the most common health concerns today. Long office hours, poor posture, and
+            </p>
+            <div class="home-blog-card-btn">
+              <a href="{{route('blogs13')}}" class="home-blog-card-read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
+          <div class="home-blog-card-img-container">
+            <a href="{{route('blogs12')}}">
+            <img src="{{asset('assets/image/blog-image/comfort-blog-12.png')}}" alt="">
+            </a>
+          </div>
+          <div class="home-blog-card-content p-20">
+            <a href="{{route('blogs12')}}">
+            <h2 class="home-blog-card-heading">
+               Dr Orthopedic Mattress: Features, Benefits & Buying Guide
+            </h2>
+            </a>
+            <p class="home-blog-card-info">
+                In today’s fast-paced lifestyle, back pain and poor sleep quality have become common problems.
+            </p>
+            <div class="home-blog-card-btn">
+              <a href="{{route('blogs12')}}" class="home-blog-card-read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
+          <div class="home-blog-card-img-container">
+            <a href="{{route('blogs11')}}">
+            <img src="{{asset('assets/image/blog-image/comfort-blog-11.png')}}" alt="">
+            </a>
+          </div>
+          <div class="home-blog-card-content p-20">
+            <a href="{{route('blogs11')}}">
+            <h2 class="home-blog-card-heading">
+               What is a Latex Mattress? Benefits, Types & Buying Guide in Mumbai
+            </h2>
+            </a>
+            <p class="home-blog-card-info">
+                A good mattress is essential for quality sleep and overall health. With increasing awareness
+            </p>
+            <div class="home-blog-card-btn">
+              <a href="{{route('blogs11')}}" class="home-blog-card-read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 home-blog-card mb-20 card-hover">
+          <div class="home-blog-card-img-container">
             <a href="{{route('blogs10')}}">
             <img src="{{asset('assets/image/blog-image/comfort-blog-10.png')}}" alt="">
             </a>
@@ -17,7 +117,7 @@
             </h2>
             </a>
             <p class="home-blog-card-info">
-                A good night’s sleep is essential for a healthy life, and the mattress you choose plays a crucial role in determining your sleep quality. 
+                A good night’s sleep is essential for a healthy life, and the mattress you choose plays a crucial role in
             </p>
             <div class="home-blog-card-btn">
               <a href="{{route('blogs10')}}" class="home-blog-card-read-more-btn">Read More</a>
@@ -99,7 +199,7 @@
               Why a Latex Mattress is the Best Choice for Healthy & Comfortable Sleep
             </h2></a>
             <p class="home-blog-card-info">
-            The Ultimate Guide to Choosing the Perfect Latex Mattress in Mumbai: When it comes to quality sleep, your mattress plays a vital role. Among the many options available
+            The Ultimate Guide to Choosing the Perfect Latex Mattress in Mumbai: When it comes to quality sleep, your mattress plays a vital role. Among the
 
             </p>
             <div class="home-blog-card-btn">

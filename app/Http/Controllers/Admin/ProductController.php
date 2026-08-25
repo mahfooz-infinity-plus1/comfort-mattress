@@ -315,15 +315,41 @@ class ProductController extends Controller
 
             $offers = MstOffer::where('is_active', true)->get();
             
-            $product_details = DB::table('map_color_sizes as m')
-            ->selectRaw("m.*, s.title as size_name, c.title as color_name")
-            ->join('mst_sizes as s', 's.id', 'm.size_id')
-            ->join('mst_colors as c', 'c.id', 'm.color_id')
-            ->Where('m.product_id', $product->id)
-            ->orderBy('m.sort_index')
-            ->get();
+            // $product_details = DB::table('map_color_sizes as m')
+            // ->selectRaw("m.*, s.title as size_name, c.title as color_name")
+            // ->join('mst_sizes as s', 's.id', 'm.size_id')
+            // ->join('mst_colors as c', 'c.id', 'm.color_id')
+            // ->Where('m.product_id', $product->id)
+            // ->orderBy('m.sort_index')
+            // ->get();
             // dd("hello man");
             // dd("$product_details");
+            
+            // $product_details = DB::table('map_color_sizes as m')
+            // ->selectRaw("m.*, s.title as size_name, c.title as color_name")
+            // ->join('mst_sizes as s', 's.id', 'm.size_id')
+            // ->join('mst_colors as c', 'c.id', 'm.color_id')
+            // ->where('m.product_id', $product->id)
+        
+            // // recently updated on top
+            // ->orderBy('m.updated_at', 'ASC')
+        
+            // ->get();
+            
+            $product_details = DB::table('map_color_sizes as m')
+            ->selectRaw('m.*, s.title as size_name, c.title as color_name')
+            ->join('mst_sizes as s', 's.id', 'm.size_id')
+            ->join('mst_colors as c', 'c.id', 'm.color_id')
+            ->where('m.product_id', $product->id)
+        
+            // variants with no stock first
+            ->orderByRaw('CASE WHEN m.stock <= 0 OR m.stock IS NULL THEN 0 ELSE 1 END ASC')
+        
+            // then sort by updated date
+            ->orderBy('m.updated_at', 'ASC')
+            ->get();
+    
+    
             return view('backend.admin.products.edit', compact('product_details', 'product', 'brands', 'sizes', 'colors', 'materials', 'units', 'conditions', 'gsts', 'keywords', 'categories', 'warranties', 'offers'));
         } catch (\Exception $ex) {
             if ($ex instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {

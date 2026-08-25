@@ -31,7 +31,14 @@ Route::middleware(['AuthUser'])->group(function () {
      Route::GET('/sleepwell-bed-mattress', 'MainController@blogs7')->name('blogs7'); 
      Route::GET('/choose-the-perfect-mattress', 'MainController@blogs8')->name('blogs8'); 
      Route::GET('/how-dr-ortho-matress-improve-sleep-quality-and-reduce-back-pain', 'MainController@blogs9')->name('blogs9'); 
-     Route::GET('/memory-foam-vs-orthopedic-mattress-which-one-is-better-for-your-sleep.blade.php', 'MainController@blogs10')->name('blogs10'); 
+     Route::GET('/memory-foam-vs-orthopedic-mattress-which-one-is-better-for-your-sleep', 'MainController@blogs10')->name('blogs10'); 
+     Route::GET('/what-is-a-latex-mattress-benefits-types-buying-guide', 'MainController@blogs11')->name('blogs11'); 
+     
+     Route::GET('/dr-orthopedic-mattress-features-benefits-buying-guide', 'MainController@blogs12')->name('blogs12'); 
+     Route::GET('/doctor-ortho-mattress-vs-regular-mattress-which-one-is-better-for-back-pain', 'MainController@blogs13')->name('blogs13'); 
+     Route::GET('/how-does-a-latex-mattress-help-improve-sleep-quality', 'MainController@blogs14')->name('blogs14'); 
+     Route::GET('/how-to-find-the-best-mattress-manufacturer-in-mumbai', 'MainController@blogs15')->name('blogs15'); 
+     
     Route::GET('/contact-us', 'MainController@contact')->name('contact-us');
     // Route::view('/product-category/pillows/latex-pillow/', 'frontend.latex-pillow')->name('latex-pillow');
     // Route::view('/product-category/pillows/memory-pillow/', 'frontend.memory-pillow')->name('memory-pillow');
@@ -79,12 +86,6 @@ Route::middleware(['AuthUser'])->group(function () {
     Route::POST('/verify-promocode', 'MainController@verifyPromocode')->name('verify.promocode');
     Route::POST('/get-size-price', 'MainController@getSizePrice')->name('get.size.price');
 
-// Start Socialite
-
-    Route::GET('auth/{provider}', 'SocialiteManageController@redirectToProvider')->name('user.auth.socialite');
-    Route::GET('auth/{provider}/callback', 'SocialiteManageController@handleProviderCallback')->name('user.auth.socialite.callback');
-
-// End Socialite
 
 // Subscriber
 
@@ -107,6 +108,18 @@ Route::middleware(['AuthUser'])->group(function () {
     Route::post('/wishlist/add', 'WishlistController@store')->name('wishlist.add');
     Route::post('/wishlist/remove', 'WishlistController@destroy')->name('wishlist.remove');
 });
+
+
+
+// Start Socialite
+
+    Route::GET('auth/{provider}', 'SocialiteManageController@redirectToProvider')->name('user.auth.socialite');
+    Route::GET('auth/{provider}/callback', 'SocialiteManageController@handleProviderCallback')->name('user.auth.socialite.callback');
+    
+//     Route::get('auth/google/callback', function () {
+//     dd(request()->all());
+// });
+// End Socialite
 
 Route::prefix('comfort753')->group(function () {
 
@@ -449,3 +462,39 @@ Route::prefix('kanwarjishop')->group(function () {
     });
 
 });
+
+// Route::get('/send-test-mail', function () {
+//     Mail::raw('This is a test email', function ($message) {
+//         $message->to('supritdagade77@gmail.com')
+//                 ->subject('Test Email');
+//     });
+
+//     return 'Quick test email sent!';
+// });
+
+Route::get('/send-test-mail', function () {
+    Mail::raw('Test email', function ($message) {
+        $message->from('support@comfort-mattress.com', 'Comfort Mattresses22')
+                ->to('supritdagade77@gmail.com')
+                ->subject('Test Email');
+    });
+
+    return 'Email sent!1';
+});
+
+
+// Route::get('/test-callback', function () {
+//     dd('test route reached');
+// });
+// Route::get('/google-login', [GoogleController::class, 'redirect']);
+// Route::get('/google-callback', [GoogleController::class, 'callback']);
+
+// Route::get(
+//     '/import-mattress-prices',
+//     'ProductController@showImportForm'
+// );
+
+// Route::post(
+//     '/import-mattress-prices',
+//     'ProductController@importMattressPrices'
+// );

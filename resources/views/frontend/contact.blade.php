@@ -62,8 +62,8 @@
                                     <span>
                                         <i class="fa-solid fa-location-dot"></i>
                                     </span>
-                                    <p>
-                                        63/65, Mohd Ali Road, Near Zakaria Masjid Signal, Commercial Chambers, Ground Floor, Mumbai, Maharashtra 400003
+                                    <p><a href="https://maps.app.goo.gl/7wxnM6sFJe9tuMEM9">
+                                        63/65, Mohd Ali Road, Near Zakaria Masjid Signal, Commercial Chambers, Ground Floor, Mumbai, Maharashtra 400003<a/>
                                     </p>
                                 </li>
                                 <li>
@@ -90,6 +90,39 @@
                                     </span>
                                     <p>
                                         <a href="mailto:info@comfort-mattress.com">INFO@COMFORT-MATTRESS.COM</a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--<div class="contact-info-widget mb-20">-->
+                    <!--    <div class="contact-info">-->
+                    <!--        {{-- <h3>Our Location</h3> --}}-->
+                    <!--        <ul>-->
+                    <!--            <li>-->
+                    <!--                <span>-->
+                    <!--                    <i class="fa-solid fa-location-dot"></i>-->
+                    <!--                </span>-->
+                    <!--                <p><a href="https://maps.app.goo.gl/BSAc8KvRTDaVX3BE7">-->
+                    <!--                    Shop no1 symphony building porbo waddo, Calangute North Goa pincode - 403516-->
+                    <!--                    </a>-->
+                    <!--                </p>-->
+                    <!--            </li>-->
+                    <!--        </ul>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <div class="contact-info-widget mb-20">
+                        <div class="contact-info">
+                            {{-- <h3>Our Location</h3> --}}
+                            <ul>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </span>
+                                    <p>
+                                        Comfort Mattress Mfg Co. SHOP NO 3, XLNC CHAMBERS, Sion - Trombay Rd, opp. IDBI BANK, 
+                                        Above Chembur ICCU Hostpital 
+                                        Chembur, Mumbai, Maharashtra 40007
                                     </p>
                                 </li>
                             </ul>

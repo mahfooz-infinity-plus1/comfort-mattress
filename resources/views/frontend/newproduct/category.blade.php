@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-12">
                     <div class="web-title text-center">
-                        <h3>{{ $category->name }}</h3>
+                        <h1>{{ $category->name }}</h1>
                     </div>
                     <div>
                         {!! $category->categorydescription !!}
@@ -101,39 +101,39 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="price-filter">
-                            <h4 class="filter-title">Price</h4>
-                            <a href="#price-filter" data-bs-toggle="collapse" class="filter-link"><span>Price
-                                </span><i class="fa fa-angle-down"></i></a>
-                            <ul class="all-price collapse" id="price-filter">
-                                {{-- <li class="f-price">
-                                    <input type="checkbox" class="filter cb_price" name="price[]" id="price_0_1000"
-                                        value="0-1000">
-                                    <label for="price_0_1000">0-1000</label>
-                                </li> --}}
-                                {{-- <li class="f-price">
-                                    <input type="checkbox" class="filter cb_price" name="price[]" id="price_1001_5000"
-                                        value="1001-5000">
-                                    <label for="price_1001_5000">1001-5000</label>
-                                </li>
-                                <li class="f-price">
-                                    <input type="checkbox" class="filter cb_price" name="price[]" id="price_5001_10000"
-                                        value="5001-10000">
-                                    <label for="price_5001_10000">5001-10000</label>
-                                </li>
-                                <li class="f-price">
-                                    <input type="checkbox" class="filter cb_price" name="price[]" id="price_10001"
-                                        value="10001_plus">
-                                    <label for="price_10001">10001 & more</label>
-                                </li> --}}
-                                <p>
-                                    <input type="text" id="amount" name="amount"
-                                        style="border:0; color:#ed1f21; font-weight:bold;" />
-                                </p>
+                        <!--<div class="price-filter">-->
+                        <!--    <h4 class="filter-title">Price</h4>-->
+                        <!--    <a href="#price-filter" data-bs-toggle="collapse" class="filter-link"><span>Price-->
+                        <!--        </span><i class="fa fa-angle-down"></i></a>-->
+                        <!--    <ul class="all-price collapse" id="price-filter">-->
+                        <!--        {{-- <li class="f-price">-->
+                        <!--            <input type="checkbox" class="filter cb_price" name="price[]" id="price_0_1000"-->
+                        <!--                value="0-1000">-->
+                        <!--            <label for="price_0_1000">0-1000</label>-->
+                        <!--        </li> --}}-->
+                        <!--        {{-- <li class="f-price">-->
+                        <!--            <input type="checkbox" class="filter cb_price" name="price[]" id="price_1001_5000"-->
+                        <!--                value="1001-5000">-->
+                        <!--            <label for="price_1001_5000">1001-5000</label>-->
+                        <!--        </li>-->
+                        <!--        <li class="f-price">-->
+                        <!--            <input type="checkbox" class="filter cb_price" name="price[]" id="price_5001_10000"-->
+                        <!--                value="5001-10000">-->
+                        <!--            <label for="price_5001_10000">5001-10000</label>-->
+                        <!--        </li>-->
+                        <!--        <li class="f-price">-->
+                        <!--            <input type="checkbox" class="filter cb_price" name="price[]" id="price_10001"-->
+                        <!--                value="10001_plus">-->
+                        <!--            <label for="price_10001">10001 & more</label>-->
+                        <!--        </li> --}}-->
+                        <!--        <p>-->
+                        <!--            <input type="text" id="amount" name="amount"-->
+                        <!--                style="border:0; color:#ed1f21; font-weight:bold;" />-->
+                        <!--        </p>-->
 
-                                <div id="slider-range"></div>
-                            </ul>
-                        </div>
+                        <!--        <div id="slider-range"></div>-->
+                        <!--    </ul>-->
+                        <!--</div>-->
                     </form>
                 </div>
             </div>

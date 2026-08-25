@@ -185,6 +185,170 @@
             </ol>
         </nav>
 
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-dark text-white-all">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
+                            class="fas fa-home"></i>Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i>Edit Product</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.products.all') }}">All Products</a></li>
+                <li class="breadcrumb-item"><a href="#addModal" data-toggle="modal" data-target="#addModal"> Add More
+                        Custom
+                        Fields</a></li>
+                <li class="breadcrumb-item"><a href="#addColorModal" data-toggle="modal" data-target="#addColorModal">
+                        Add
+                        More Thickness & Sizes</a></li>
+            </ol>
+        </nav>
+
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Available Thickness & Sizes for {{ $product->title }}</h5>
+            </div>
+
+            @if ($product_details)
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label># </label>
+                                </th>
+                                <th>
+                                    <label for="id">ID </label>
+                                </th>
+                                <th>
+                                    <label for="status">Status </label>
+                                </th>
+                                <th>
+                                    <label for="sort_index">Sort Index </label>
+                                </th>
+                                <th>
+                                    <label for="size_id">Size</label>
+                                </th>
+                                <th>
+                                    <label for="color_id">Thickness </label>
+                                </th>
+                                <th>
+                                    <label for="mrp">Selling Price</label>
+                                </th>
+                                <th>
+                                    <label for="stock">Stock</label>
+                                </th>
+                                <th>
+                                    <label for="selling_price">Mrp</label>
+                                </th>
+                                <th>Updated Date</th>
+                                <th>Updated Time</th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($product_details as $key => $cf)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>
+                                        <input type="number" name="map_id[{{ $key }}]"
+                                            value="{{ $cf->id }}" class="form-control" disabled>
+                                    </td>
+
+                                    <td>
+                                        <select name="status[{{ $key }}]" class="form-control"
+                                            style="width: fit-content;" required>
+                                            <option value="">--Select--</option>
+                                            <option value="1" {{ $cf->status == true ? 'selected' : '' }}>Active
+                                            </option>
+                                            <option value="0" {{ $cf->status == false ? 'selected' : '' }}>Inactive
+                                            </option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" min="1" name="sort_index[{{ $key }}]"
+                                            value="{{ $cf->sort_index }}" class="form-control">
+                                    </td>
+
+                                    <td>
+                                        <input type="hidden" name="size_id[{{ $key }}]"
+                                            value="{{ $cf->size_id }}">
+                                        <input value="{{ $cf->size_name }}" class="form-control">
+                                    </td>
+
+                                    <td>
+                                        <input type="hidden" name="colour_id[{{ $key }}]"
+                                            value="{{ $cf->color_id }}">
+                                        <input value="{{ $cf->color_name }}" class="form-control" disabled>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" name="mrp[{{ $key }}]"
+                                            value="{{ $cf->mrp }}" class="form-control">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" name="stock[{{ $key }}]"
+                                            value="{{ $cf->stock }}" class="form-control">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" name="starting_price[{{ $key }}]"
+                                            value="{{ $cf->starting_price ? $cf->starting_price : 0 }}"
+                                            class="form-control">
+                                    </td>
+                                    
+                                    
+                                     <!-- Updated Date -->
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($cf->updated_at)->format('d-m-Y') }}
+                                    </td>
+                        
+                                    <!-- Updated Time -->
+                                    <td>
+                                        <!--{{ \Carbon\Carbon::parse($cf->updated_at)->format('h:i A') }}-->
+                                        
+                                        <a href="javascript:void(0)"
+                                                    class="dropdown-item has-icon update-color-object"
+                                                    data-object-index="{{ $key }}" title="Update Detail">
+                                                    <i class="fa fa-save"></i> Update
+                                                </a>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="dropdown d-inline">
+                                            <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownMenuButton2"
+                                                data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                                <i data-feather="more-vertical"></i>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a href="{{ route('admin.products.color.edit', $cf->id) }}"
+                                                    class="dropdown-item has-icon" title="Update Detail">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <a href="javascript:void(0)"
+                                                    class="dropdown-item has-icon update-color-object"
+                                                    data-object-index="{{ $key }}" title="Update Detail">
+                                                    <i class="fa fa-save"></i> Update
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+        </div>
+        
+        
+        
+        <!--======================================-->
+        
         <div class="card">
             <div class="card-header bg-dark text-white-all">
                 <h4>Update Product</h4>
@@ -539,142 +703,7 @@
                 </form>
             </div>
         </div>
-
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-dark text-white-all">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
-                            class="fas fa-home"></i>Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-list"></i>Edit Product</li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.products.all') }}">All Products</a></li>
-                <li class="breadcrumb-item"><a href="#addModal" data-toggle="modal" data-target="#addModal"> Add More
-                        Custom
-                        Fields</a></li>
-                <li class="breadcrumb-item"><a href="#addColorModal" data-toggle="modal" data-target="#addColorModal">
-                        Add
-                        More Thickness & Sizes</a></li>
-            </ol>
-        </nav>
-
-
-        <div class="card">
-            <div class="card-header">
-                <h5>Available Thickness & Sizes for {{ $product->title }}</h5>
-            </div>
-
-            @if ($product_details)
-                <div class="card-body">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <label for="id">ID </label>
-                                </th>
-                                <th>
-                                    <label for="status">Status </label>
-                                </th>
-                                <th>
-                                    <label for="sort_index">Sort Index </label>
-                                </th>
-                                <th>
-                                    <label for="size_id">Size</label>
-                                </th>
-                                <th>
-                                    <label for="color_id">Thickness </label>
-                                </th>
-                                <th>
-                                    <label for="mrp">Selling Price</label>
-                                </th>
-                                <th>
-                                    <label for="stock">Stock</label>
-                                </th>
-                                <th>
-                                    <label for="selling_price">Mrp</label>
-                                </th>
-                                <th>
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach ($product_details as $key => $cf)
-                                <tr>
-                                    <td>
-                                        <input type="number" name="map_id[{{ $key }}]"
-                                            value="{{ $cf->id }}" class="form-control" disabled>
-                                    </td>
-
-                                    <td>
-                                        <select name="status[{{ $key }}]" class="form-control"
-                                            style="width: fit-content;" required>
-                                            <option value="">--Select--</option>
-                                            <option value="1" {{ $cf->status == true ? 'selected' : '' }}>Active
-                                            </option>
-                                            <option value="0" {{ $cf->status == false ? 'selected' : '' }}>Inactive
-                                            </option>
-                                        </select>
-                                    </td>
-
-                                    <td>
-                                        <input type="number" min="1" name="sort_index[{{ $key }}]"
-                                            value="{{ $cf->sort_index }}" class="form-control">
-                                    </td>
-
-                                    <td>
-                                        <input type="hidden" name="size_id[{{ $key }}]"
-                                            value="{{ $cf->size_id }}">
-                                        <input value="{{ $cf->size_name }}" class="form-control">
-                                    </td>
-
-                                    <td>
-                                        <input type="hidden" name="colour_id[{{ $key }}]"
-                                            value="{{ $cf->color_id }}">
-                                        <input value="{{ $cf->color_name }}" class="form-control" disabled>
-                                    </td>
-
-                                    <td>
-                                        <input type="text" name="mrp[{{ $key }}]"
-                                            value="{{ $cf->mrp }}" class="form-control">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" name="stock[{{ $key }}]"
-                                            value="{{ $cf->stock }}" class="form-control">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" name="starting_price[{{ $key }}]"
-                                            value="{{ $cf->starting_price ? $cf->starting_price : 0 }}"
-                                            class="form-control">
-                                    </td>
-
-                                    <td>
-
-                                        <div class="dropdown d-inline">
-                                            <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownMenuButton2"
-                                                data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                                <i data-feather="more-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('admin.products.color.edit', $cf->id) }}"
-                                                    class="dropdown-item has-icon" title="Update Detail">
-                                                    <i class="fa fa-edit"></i> Edit
-                                                </a>
-                                                <a href="javascript:void(0)"
-                                                    class="dropdown-item has-icon update-color-object"
-                                                    data-object-index="{{ $key }}" title="Update Detail">
-                                                    <i class="fa fa-save"></i> Update
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            @endif
-        </div>
+        <!--======================================-->
 
 
         <div class="card">

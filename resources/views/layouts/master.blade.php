@@ -640,18 +640,21 @@ src="https://www.facebook.com/tr?id=1713628936036415&ev=PageView&noscript=1"
                     </div>
                     <ul>
                         <li>
-                            <a href="https://comfort-mattress.com/product-category/latex-mattress-42">Latex Mattres
+                            <a href="https://comfort-mattress.com/product-category/latex-mattress">Latex Mattres
                             </a>
                         </li>
-                        <li><a href="https://comfort-mattress.com/product-category/foam-mattress-43">Foam Mattress
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://comfort-mattress.com/product-category/spring-mattress-44">Spring Mattress
+                        <li><a href="https://comfort-mattress.com/product-category/foam-mattress">Foam Mattress
                             </a>
                         </li>
                         <li>
-                            <a href="https://comfort-mattress.com/product-category/memory-mattress-45">Memory Mattress</a>
+                            <a href="https://comfort-mattress.com/product-category/spring-mattress">Spring Mattress
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comfort-mattress.com/product-category/memory-mattress">Memory Mattress</a>
+                        </li>
+                        <li>
+                            <a href="https://comfort-mattress.com/product-category/orthopedic-mattress">Orthopedic Mattress</a>
                         </li>
                         <div class="footer-link-heading">
                             CONTACT DETAILS
@@ -775,9 +778,19 @@ src="https://www.facebook.com/tr?id=1713628936036415&ev=PageView&noscript=1"
                             <div>
                                 Branch :
                             </div>
+                            <!--<address>-->
+                            <!--    <a-->
+                            <!--        href="https://maps.app.goo.gl/BSAc8KvRTDaVX3BE7">Shop no1 symphony building porbo waddo, Calangute North Goa pincode - 403516</a>-->
+                            <!--</address>-->
+<!--                            <address>-->
+<!--                                <a-->
+<!--                                    href="https://maps.app.goo.gl/BSAc8KvRTDaVX3BE7">-->
+<!--Shop no1 symphony building porbo waddo, Calangute North Goa pincode - 403516</a>-->
+<!--                            </address>-->
                             <address>
                                 <a
-                                    href="https://maps.app.goo.gl/BSAc8KvRTDaVX3BE7">Shop no1 symphony building porbo waddo, Calangute North Goa pincode - 403516</a>
+                                    href="#">
+Comfort Mattress Mfg Co. SHOP NO 3, XLNC CHAMBERS, Sion - Trombay Rd, opp. IDBI BANK, Above Chembur ICCU Hostpital Chembur, Mumbai, Maharashtra 400071</a>
                             </address>
                         </li>
                         <li>

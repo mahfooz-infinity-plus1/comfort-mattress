@@ -1067,7 +1067,8 @@
                 <div class="row ps-5">
                     <div class="col-lg-6 pe-5">
                         <div class="web-logo-container">
-                            <img src="{asset('assets/image/logo/logo.png')}" alt="">
+                            <!--<img src="{asset('assets/image/logo/logo.png')}" alt="">-->
+                            <img src="{!! asset('assets/image/logo/logo.png') !!}" alt="">
                         </div>
                         <div class="card-title mb-4">
                             <h3>
@@ -1352,6 +1353,63 @@
                     <div class=" owl-carousel owl-theme" id="blogs">
                         <div class="col-12 home-blog-card mb-20 card-hover">
                           <div class="home-blog-card-img-container">
+                            <a href="{{route('blogs15')}}">
+                            <img src="{{asset('assets/image/blog-image/comfort-blog-12.png')}}" alt="">
+                            </a>
+                          </div>
+                          <div class="home-blog-card-content p-20">
+                            <a href="{{route('blogs15')}}">
+                            <h2 class="home-blog-card-heading">
+                              How to Find the Best Mattress Manufacturer in Mumbai?
+                            </h2></a>
+                            <p class="home-blog-card-info">
+                            Choosing the right mattress is an important decision because a mattress affects more than just
+                            </p>
+                            <div class="home-blog-card-btn">
+                              <a href="{{route('blogs15')}}" class="home-blog-card-read-more-btn">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 home-blog-card mb-20 card-hover">
+                          <div class="home-blog-card-img-container">
+                            <a href="{{route('blogs12')}}">
+                            <img src="{{asset('assets/image/blog-image/comfort-blog-12.png')}}" alt="">
+                            </a>
+                          </div>
+                          <div class="home-blog-card-content p-20">
+                            <a href="{{route('blogs12')}}">
+                            <h2 class="home-blog-card-heading">
+                              Dr Orthopedic Mattress: Features, Benefits & Buying Guide
+                            </h2></a>
+                            <p class="home-blog-card-info">
+                            In today’s fast-paced lifestyle, back pain and poor sleep quality have become common problems. 
+                            </p>
+                            <div class="home-blog-card-btn">
+                              <a href="{{route('blogs12')}}" class="home-blog-card-read-more-btn">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 home-blog-card mb-20 card-hover">
+                          <div class="home-blog-card-img-container">
+                            <a href="{{route('blogs11')}}">
+                            <img src="{{asset('assets/image/blog-image/comfort-blog-11.png')}}" alt="">
+                            </a>
+                          </div>
+                          <div class="home-blog-card-content p-20">
+                            <a href="{{route('blogs11')}}">
+                            <h2 class="home-blog-card-heading">
+                              What is a Latex Mattress? Benefits, Types & Buying Guide in Mumbai
+                            </h2></a>
+                            <p class="home-blog-card-info">
+                            A good mattress is essential for quality sleep and overall health. With increasing awareness about sleep wellness, many people are now switching 
+                            </p>
+                            <div class="home-blog-card-btn">
+                              <a href="{{route('blogs11')}}" class="home-blog-card-read-more-btn">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 home-blog-card mb-20 card-hover">
+                          <div class="home-blog-card-img-container">
                             <a href="{{route('blogs1')}}">
                             <img src="{{asset('assets/image/blog-image/comfort-blog-1.png')}}" alt="">
                             </a>
@@ -1552,238 +1610,298 @@
                 <!--<div class="col-md-5">-->
                 <!--    <img src="{!! asset('assets/image/card-image/750x900.png') !!}" alt="">-->
                 <!--</div>-->
+                <div class="col-12 mb-5">
+                    <h3>Choosing the Right Mattress</h3>
+                    <p class="mb-3">Guidance + buying decisions</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    How can I choose the right mattress thickness?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Comfort Mattress offers various thickness options, from 4 to 6 inches, across different
+                                                    models. Thicker mattresses provide more plushness and support, while thinner options are
+                                                    suitable for lighter individuals or children.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseThree">
+                                                    How to Choose the Right Mattress Size?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Choosing the right mattress size depends on your sleeping habits, room size, and
+                                                    personal preferences. Consider factors such as your height, whether you sleep alone or
+                                                    with a partner, and available space.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseThree">
+                                                    What Should I Look for When Buying a Mattress Online?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseEleven" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    When buying a mattress online, consider factors like material quality, firmness level,
+                                                    warranty, return policy, and customer reviews. Ensure you select a brand that
+                                                    prioritizes comfort and durability.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseThree">
+                                                    How to Identify the Right Firmness for Your Sleeping Position?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwelve" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Firmness preferences vary based on sleeping positions: side sleepers often prefer softer
+                                                    mattresses for pressure relief, while back and stomach sleepers may benefit from firmer
+                                                    support.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-5">
+                    <h3>Mattress Types & Materials</h3>
+                    <p class="mb-3">Product education</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                                    What is Natural Latex Technology?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFive" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Natural latex technology utilizes 100% organic latex derived from rubber trees, offering
+                                                    superior comfort and support while being environmentally friendly.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                                    What are the Key Features of Natural Latex Mattresses?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Natural latex mattresses are breathable, hypoallergenic, and resistant to dust mites and
+                                                    mold. They provide excellent body support, pressure relief, and durability.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
+                                                    What Makes Memory Foam Unique?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseNine" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Memory foam contours to your body's shape, providing customized support and relieving
+                                                    pressure points. It is ideal for those seeking enhanced comfort and pain relief.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                                                    What are the Benefits of Using Natural Latex in Mattresses?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSeven" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Natural latex promotes healthy sleep by providing optimal spinal alignment, reducing
+                                                    motion transfer, and offering a cooler sleeping surface. It's also sustainable and
+                                                    biodegradable.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                                                    How Do Pocket Spring Mattresses Work?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseEight" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Pocket spring mattresses consist of individually wrapped coils that move independently,
+                                                    providing targeted support and reducing motion transfer for a restful night's sleep.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-5">
+                    <h3>Orders, Delivery & Returns</h3>
+                    <p class="mb-3">All transactional + policies in one place</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Are custom sizes available for Comfort Mattress products?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Yes, we offer custom sizing for all our mattress models to ensure that you get the
+                                                    perfect fit for your bed frame. Contact us at +91 7045945037 for custom orders.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFifteen" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                    Does Comfort Mattress offer free shipping?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFifteen" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Yes, we provide free shipping on all our mattresses, ensuring a hassle-free shopping experience. Our products are delivered right to your doorstep.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFifteen" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                    What is Your Return Policy?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFifteen" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    We offer a hassle-free return policy to ensure our customers are completely satisfied
+                                                    with their purchase. If you are not happy with your mattress, you can initiate a return
+                                                    within 30 days of delivery.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How can I choose the right mattress thickness?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Comfort Mattress offers various thickness options, from 4 to 6 inches, across different
-                                    models. Thicker mattresses provide more plushness and support, while thinner options are
-                                    suitable for lighter individuals or children.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Are custom sizes available for Comfort Mattress products?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes, we offer custom sizing for all our mattress models to ensure that you get the
-                                    perfect fit for your bed frame. Contact us at +91 7045945037 for custom orders.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Does Comfort Mattress offer free shipping?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Yes, we provide free shipping on all our mattresses, ensuring a hassle-free shopping
-                                    experience. Our products are delivered right to your doorstep.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                    What makes Comfort Mattress a trusted brand?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Comfort Mattress combines premium materials, advanced mattress technology, and a
-                                    customer-first approach to deliver high-quality sleep solutions. Our mattresses are
-                                    designed for long-lasting comfort, ensuring you wake up feeling refreshed.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
-                                    What is Natural Latex Technology?
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Natural latex technology utilizes 100% organic latex derived from rubber trees, offering
-                                    superior comfort and support while being environmentally friendly.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
-                                    What are the Key Features of Natural Latex Mattresses?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Natural latex mattresses are breathable, hypoallergenic, and resistant to dust mites and
-                                    mold. They provide excellent body support, pressure relief, and durability.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
-                                    What are the Benefits of Using Natural Latex in Mattresses?
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Natural latex promotes healthy sleep by providing optimal spinal alignment, reducing
-                                    motion transfer, and offering a cooler sleeping surface. It's also sustainable and
-                                    biodegradable.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
-                                    How Do Pocket Spring Mattresses Work?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Pocket spring mattresses consist of individually wrapped coils that move independently,
-                                    providing targeted support and reducing motion transfer for a restful night's sleep.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
-                                    What Makes Memory Foam Unique?
-                                </button>
-                            </h2>
-                            <div id="collapseNine" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Memory foam contours to your body's shape, providing customized support and relieving
-                                    pressure points. It is ideal for those seeking enhanced comfort and pain relief.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseThree">
-                                    How to Choose the Right Mattress Size?
-                                </button>
-                            </h2>
-                            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Choosing the right mattress size depends on your sleeping habits, room size, and
-                                    personal preferences. Consider factors such as your height, whether you sleep alone or
-                                    with a partner, and available space.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseThree">
-                                    What Should I Look for When Buying a Mattress Online?
-                                </button>
-                            </h2>
-                            <div id="collapseEleven" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    When buying a mattress online, consider factors like material quality, firmness level,
-                                    warranty, return policy, and customer reviews. Ensure you select a brand that
-                                    prioritizes comfort and durability.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseThree">
-                                    How to Identify the Right Firmness for Your Sleeping Position?
-                                </button>
-                            </h2>
-                            <div id="collapseTwelve" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Firmness preferences vary based on sleeping positions: side sleepers often prefer softer
-                                    mattresses for pressure relief, while back and stomach sleepers may benefit from firmer
-                                    support.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThirteen" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    How to Care for and Maintain My Mattress?
-                                </button>
-                            </h2>
-                            <div id="collapseThirteen" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Regularly rotate your mattress to prevent uneven wear, use a mattress protector to keep
-                                    it clean, and follow care instructions for specific materials to ensure longevity.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFourteen" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    What are the Signs That It’s Time to Replace My Mattress?
-                                </button>
-                            </h2>
-                            <div id="collapseFourteen" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Signs it’s time to replace your mattress include visible sagging, persistent discomfort,
-                                    allergies acting up, and waking up feeling tired. Generally, mattresses should be
-                                    replaced every 7-10 years.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFifteen" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    What is Your Return Policy?
-                                </button>
-                            </h2>
-                            <div id="collapseFifteen" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    We offer a hassle-free return policy to ensure our customers are completely satisfied
-                                    with their purchase. If you are not happy with your mattress, you can initiate a return
-                                    within 30 days of delivery.
+                    <h3>Care, Longevity & Brand</h3>
+                    <p class="mb-3">Post-purchase + trust</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion" id="accordionExample">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseThirteen" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                    How to Care for and Maintain My Mattress?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThirteen" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Regularly rotate your mattress to prevent uneven wear, use a mattress protector to keep
+                                                    it clean, and follow care instructions for specific materials to ensure longevity.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                    What makes Comfort Mattress a trusted brand?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Comfort Mattress combines premium materials, advanced mattress technology, and a
+                                                    customer-first approach to deliver high-quality sleep solutions. Our mattresses are
+                                                    designed for long-lasting comfort, ensuring you wake up feeling refreshed.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseFourteen" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                    What are the Signs That It’s Time to Replace My Mattress?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFourteen" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Signs it’s time to replace your mattress include visible sagging, persistent discomfort,
+                                                    allergies acting up, and waking up feeling tired. Generally, mattresses should be
+                                                    replaced every 7-10 years.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

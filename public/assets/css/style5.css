@@ -39,6 +39,10 @@
     Google Font
     =====================================*/
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap');
+    
+    /*@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');*/
+    /*@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');*/
+    @import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
 
     /*====================================
     Typography
@@ -3453,6 +3457,14 @@
         font-weight: 700;
         margin-bottom: 10px;
     }
+    .web-title h1 {
+        color: #54595f;
+        /* color: red; */
+        font-family: "Muli", Sans-serif;
+        font-size: 1em;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
 
     .dark-bg .web-title h3 {
         color: #fff;
@@ -4546,7 +4558,8 @@
 
     .home-about-secondheading {
         font-weight: 500;
-        font-family: "Edu NSW ACT Hand Pre", cursive;
+        /*font-family: "Edu NSW ACT Hand Pre", cursive;*/
+        font-family: "Playball", cursive;
     }
 
 
@@ -4628,8 +4641,13 @@
     .middlemen-p {
         text-align: center;
         margin-top: 8px;
-        font-family: "Edu NSW ACT Hand Pre", cursive;
-        font-weight: 500;
+        /*font-family: "Edu NSW ACT Hand Pre", cursive;*/
+        /*font-weight: 500;*/
+        /*font-family: "Great Vibes", cursive;*/
+        /*font-family: "Lugrasimo", cursive;*/
+        font-family: "Playball", cursive;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .new-circle-card-image {

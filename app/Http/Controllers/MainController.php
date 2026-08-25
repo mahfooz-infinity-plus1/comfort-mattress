@@ -228,6 +228,21 @@ public function mail(Request $request)
      public function blogs10(){
        return view('frontend.blog.memory-foam-vs-orthopedic-mattress-which-one-is-better-for-your-sleep');
     }
+     public function blogs11(){
+       return view('frontend.blog.what-is-a-latex-mattress-benefits-types-buying-guide-in-mumbai');
+    }
+        public function blogs12(){
+       return view('frontend.blog.dr-orthopedic-mattress-features-benefits-buying-guide');
+    }
+        public function blogs13(){
+       return view('frontend.blog.doctor-ortho-mattress-vs-regular-mattress-which-one-is-better-for-back-pain');
+    }
+        public function blogs14(){
+       return view('frontend.blog.how-does-a-latex-mattress-help-improve-sleep-quality');
+    }
+        public function blogs15(){
+       return view('frontend.blog.how-to-find-the-best-mattress-manufacturer-in-mumbai');
+    }
    public function contact(){
   
        
