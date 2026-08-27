@@ -1247,7 +1247,7 @@ class ProductController extends Controller
         $request->validate(
             [
                 'file' => 'required|max:20000',
-            ],
+            ]
         );
 
         try {
