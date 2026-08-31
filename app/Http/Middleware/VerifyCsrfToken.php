@@ -20,5 +20,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/transaction-callback',
+        '/ccavenue-callback',
+        '/ccavenue-cancel',
     ];
 }
