@@ -271,8 +271,11 @@ class OrderController extends Controller
             'order_id' => $order->id,
             'amount' => $balance,
             'currency' => 'INR',
-            'redirect_url' => route('ccavenue.callback'),
-            'cancel_url' => route('ccavenue.cancel'),
+            // 'redirect_url' => route('ccavenue.callback'),
+            // 'cancel_url' => route('ccavenue.cancel'),
+            'redirect_url' => 'https://comfort-mattress.com/ccavenue-callback', // use your actual live route path
+'cancel_url' => 'https://comfort-mattress.com/ccavenue-cancel',
+
             'language' => 'EN',
             'billing_name' => $user->name,
             'billing_address' => $add->address,
