@@ -87,6 +87,7 @@ src="https://www.facebook.com/tr?id=1713628936036415&ev=PageView&noscript=1"
 
     </style>
     @yield('extracss')
+    <meta name="google-site-verification" content="Gb2bn8FBSXfgcwnWeWo1e9y884oP4MJaHz1X2DOBN1Y" />
 
 </head>
 
